@@ -36,7 +36,7 @@ jobs:
             mkdir -p ~/ansible
             cd ~/ansible
 
-            cat << INVENTORY > host.ini
+            cat << inventories > dev.ini
             [java]
             ${{ github.event.inputs.java_ip }}
 
@@ -77,5 +77,5 @@ jobs:
             PLAYBOOK
 
             chmod 400 ~/ec2-key.pem
-            ansible-playbook -i host.ini site.yml
+            ansible-playbook -i dev.ini site.yml
           EOF
