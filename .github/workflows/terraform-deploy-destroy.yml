@@ -21,7 +21,8 @@ jobs:
       TF_IN_AUTOMATION: true
       TF_INPUT: false
       TF_VAR_ami_id: ${{ secrets.TF_VAR_ami_id }}
-      TF_VAR_key_name: ${{ secrets.KEY_NAME }}
+      TF_VAR_key_name: ${{ secrets.TF_VAR_key_name }}
+
 
     steps:
       - uses: actions/checkout@v4
