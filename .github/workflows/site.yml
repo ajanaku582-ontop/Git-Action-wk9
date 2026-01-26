@@ -16,9 +16,9 @@
       yum:
         name: nginx
         state: present
-
-    - name: Start and enable Nginx
-      service:
-        name: nginx    
-        state: started
-        enabled: yes
+    - name: Start Nginx
+        service:
+            name: nginx
+            state: started
+            enabled: yes
+            
