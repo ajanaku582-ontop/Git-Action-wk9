@@ -49,8 +49,7 @@ jobs:
           ${{ github.event.inputs.nginx_ip }}
 
           [all:vars]
-          ansible_user=ec2-user
-          ansible_ssh_private_key_file=~/ec2-key.pem
+          ansible_ssh_private_key_file=~/.ssh/ec2-key.pe
           ansible_ssh_common_args='-o StrictHostKeyChecking=no'
           INVENTORY
 
@@ -84,7 +83,8 @@ jobs:
                   enabled: true
           PLAYBOOK
 
-          chmod 400 ~/ec2-key.pem
+          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/ec2-key.pem
+          chmod 400 ~/.ssh/ec2-key.pem
 
           ansible-playbook -i dev.ini deploy.yml
 
